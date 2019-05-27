@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BaseballCard from './BaseballCard';
 import uuid from 'uuid';
+import './CardCollection.css';
 
 class CardCollection extends Component {
   static defaultProps = {
@@ -16,22 +17,24 @@ class CardCollection extends Component {
     return (
       <div className="CardCollection">
         <h1>Major League Baseball Cards (2018 Stats)</h1>
-        {this.props.players.map((player) => (
-          <BaseballCard
-            key={player.id}
-            img={player.img}
-            name={player.name}
-            games={player.games}
-            pa={player.plate_appearances}
-            hr={player.hr}
-            runs={player.runs}
-            rbi={player.rbi}
-            sb={player.sb}
-            avg={player.avg}
-            obp={player.obp}
-            slg={player.slg}
-          />
-        ))}
+        <div className="BaseballCards">
+          {this.props.players.map((player) => (
+            <BaseballCard
+              key={player.id}
+              img={player.img}
+              name={player.name}
+              games={player.games}
+              pa={player.plate_appearances}
+              hr={player.hr}
+              runs={player.runs}
+              rbi={player.rbi}
+              sb={player.sb}
+              avg={player.avg}
+              obp={player.obp}
+              slg={player.slg}
+            />
+          ))}
+        </div>
       </div>
     )
   }
